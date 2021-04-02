@@ -20,8 +20,11 @@ Please note that this **CLONES** the API, so this will be a different API than m
 ### To install:
 #### From Github/git
 `$ git clone https://github.com/MasterCoder21/Quote-API`
+
 `$ cd Quote-API`
+
 `$ pip install -r requirements.txt`
+
 `$ python main.py`
 
 Go to http://0.0.0.0:8080/
