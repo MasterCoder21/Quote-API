@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+</style>
+</head>
+<body>
+
+<h2>Quote API Documentation</h2>
+<p>All of the helpful information about this API is included below, along with the different endpoints and paramaters for certain endpoints.</p>
+<button class="accordion">GET Endpoints</button>
+<div class="panel">
+  <h3> - GET <a href="/quotes/list">/quotes/list</a></h3>
+  <p>Aliases:</p>
+  <ul>
+  <li><a href="/quotes/all">/quotes/all</a></li>
+  <li><a href="/quotes/list-all">/quotes/list-all</a></li>
+</ul>
+<p>Parameters: None</p>
+<p>Returns all of the quotes in the database.</p><br><br>
+<h3> - GET <a href="/quotes/count">/quotes/count</a></h3>
+  <p>Aliases:</p>
+  <ul>
+  <li><a href="/quotes/count-list">/quotes/count-list</a></li>
+  <li><a href="/quotes/num-list">/quotes/num-list</a></li>
+  <li><a href="/quotes/number-list">/quotes/number-list</a></li>
+</ul>
+<p>Parameters: num (int)</p>
+<p>Usage: <a href="/quotes/count?num=3">/quotes/count?num=(your_number)</a></p>
+<p>Returns the number of quotes you asked for, no duplicates.</p><br><br>
+<h3> - GET <a href="/quotes">/quotes</a></h3>
+  <p>Aliases:</p>
+  <ul>
+  <li><a href="/quotes">/quotes/</a></li>
+  <li><a href="/quotes/3">/quotes/id</a></li>
+</ul>
+<p>Parameters: id (int)</p>
+<p>Usage (only for last alias): <a href="/quotes/3">/quotes/(id_of_quote)</a></p>
+<p>Returns a single random quote or the quote with the ID you specified (only for the last alias)</p><br><br>
+</div>
+
+<button class="accordion">Posting a Quote</button>
+<div class="panel">
+  <p> - POST <a href="/quotes/add">/quotes/add</a></p>
+  <p>Aliases:</p>
+  <ul>
+  <li><a href="/quotes/add">/quotes/post</a></li>
+</ul>
+<p>Parameters: author (str), quote (str)</p>
+<p>Usage: <a href="/quotes/add">/quotes/add?author=(author_name)&amp;quote=(your_quote)</a></p>
+<p>Posts a quote to the database and returns the JSON data of what you just posted.</p>
+</div>
+
+<button class="accordion">Updating a Quote</button>
+<div class="panel">
+  <p> - PUT <a href="/quotes/update">/quotes/update</a></p>
+  <p>Aliases:</p>
+  <ul>
+  <li><a href="/quotes/put">/quotes/put</a></li>
+  </ul>
+  <p>Paramaters: id (int), author (str), quote (str)</p>
+  <p>Usage: <a href="/quotes/update">/quotes/update/id?author=(author_name)&amp;quote=(your_quote)</a></p>
+  <p>Updates the quote author and content corresponding to the ID you specified.</p>
+</div>
+
+<button class="accordion">Deleting a Quote</button>
+<div class="panel">
+  <p> - DELETE <a href="/quotes/delete">/quotes/delete</a></p>
+  <p>Aliases:</p>
+  <ul>
+  <li><a href="/quotes/del">/quotes/del</a></li>
+  <li><a href="/quotes/remove">/quotes/remove</a></li>
+  </ul>
+  <p>Paramaters: id (int)</p>
+  <p>Usage: <a href="/quotes/delete">/quotes/delete/id</a></p>
+  <p>Deletes the comment with the ID you specified.</p>
+</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+
+</body>
+</html>
