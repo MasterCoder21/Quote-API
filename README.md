@@ -15,5 +15,20 @@ Here are some basics for the API:
 ## PC Installation for Forking/Cloning
 If you want to use this project for your own uses, feel free to do so.  This project is completely open-source and there is no license for it. :D
 
+Please note that this **CLONES** the API, so this will be a different API than mine.
+
 ### To install:
-#### From Github/git:
+#### From Github/git
+`$ git clone https://github.com/MasterCoder21/Quote-API`
+`$ cd Quote-API`
+`$ pip install -r requirements.txt`
+`$ python main.py`
+
+Go to http://0.0.0.0:8080/
+The API should work perfectly fine!
+
+#### Dependencies
+* Flask
+* flask-restful
+
+
